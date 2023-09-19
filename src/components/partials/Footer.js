@@ -1,16 +1,20 @@
 import React from "react";
 
+// using arrow function
 const Footer = () => {
   return (
-    <footer id="footer"> <br /> <hr /> <br />
+    <footer id="footer">
+      {" "}
+      <br /> <hr /> <br />
+      {/* some of anchors(links from bottom) */}
       <div className="anchors">
-        <a className="anchors-footer" href="/home">
+        <a className="anchors-footer" href="/">
           Home
         </a>
         <a className="anchors-footer" href="/aboutus">
           About us
         </a>
-        
+
         <a className="anchors-footer" href="/map">
           Map
         </a>
@@ -21,6 +25,7 @@ const Footer = () => {
           Attractions
         </a>
       </div>
+      {/* copyright */}
       <div className="copyright">
         <div className="footer-container">
           <ul className="footer-ul">
@@ -34,15 +39,14 @@ const Footer = () => {
               <a href="home">Privacy Statements</a>{" "}
             </li>
           </ul>
+          {/* copyrighted to us */}
           <ul>
-          <li className="footer-li">
+            <li className="footer-li">
               &copy; 2023 Aaditya Acharya/Benjamin McQueen. <br />
               All rights reserved.
               <hr />
             </li>
-            </ul>
-
-         
+          </ul>
         </div>
       </div>
     </footer>

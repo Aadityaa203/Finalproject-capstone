@@ -32,6 +32,7 @@ function Contact() {
 
   return (
     <div>
+    {/* contact us Form */}
       <h1 className="contact-heading create">Contact us</h1>
       <div className="form-container">
         <form>
@@ -84,6 +85,7 @@ function Contact() {
         </form>
       </div>
 
+    {/* Frequently asked questions and answers */}
       <div className="FAQ-container">
         <h2 className="FAQ-heading">FAQ / Frequenty Asked Questions</h2>
         <ul>

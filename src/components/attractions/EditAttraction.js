@@ -62,8 +62,6 @@ class EditAttraction extends Component {
 
     componentDidMount() {
         let { id } = this.props;
-        console.log("id:", id);
-        console.log('Outgoing Request: ', process.env.REACT_APP_BACKEND + id);
         axios.get(process.env.REACT_APP_BACKEND + 'attractions/' + id)
             .then(res => {
                 this.setState({
@@ -98,7 +96,6 @@ class EditAttraction extends Component {
             .then(res => {
 
                 let { lat, lng } = res.data.results[0].geometry.location;
-                console.log("lat, lng", lat, lng);
 
                 const attraction = {
                     name: this.state.name,

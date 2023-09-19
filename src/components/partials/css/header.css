@@ -111,3 +111,34 @@
   color: #ff4c4c;
   text-transform: uppercase;
 }
+
+/* last minute Styling */
+.word {
+  font-weight: bold;
+  font-size: 30px;
+  color:white;
+}
+.backward-letter {
+  display: inline-block;
+  transform: scaleX(-1);
+  font-size: 25px;
+  color:#ff0000;
+}
+
+.big-letter{
+  display: inline-block;
+  font-size: 50pt;
+  font-family: 'Fuggles', serif;
+  margin-top: -30px;
+}
+
+@media (max-width: 900px) {
+  .big-letter{
+    font-size: 35pt;
+  }
+
+  .word{
+    font-size: 16pt;
+    
+  }
+}

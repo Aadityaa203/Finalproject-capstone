@@ -47,8 +47,6 @@ class Attractions extends Component {
 
   componentDidMount() {
     document.getElementById('Message').innerHTML = this.props.message || "Don't see your attraction here?";
-    console.log("Component Mounted");
-    console.log("Pulling from ", process.env.REACT_APP_BACKEND + 'attractions/');
     axios.get(process.env.REACT_APP_BACKEND + 'attractions/')
       .then(res => { this.setState({ attractions: res.data }); })
       .catch(err => console.log(err));
@@ -73,8 +71,6 @@ class Attractions extends Component {
   }
 
   render() {
-    console.log("this.attractionList:", this.attractionList());
-
     return (
       <div>
         <div className='add-attraction-cta'> {/* CTA is short for Call To Action. */}

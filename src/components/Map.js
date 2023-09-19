@@ -6,6 +6,7 @@ import L from "leaflet";
 import "leaflet-defaulticon-compatibility";
 import axios from "axios";
 
+// arrow function
 const Map = () => {
   useEffect(() => {
     //declearing and retriving the DOM element with id "map" using leaflet's utility function
@@ -17,25 +18,26 @@ const Map = () => {
       container._leaflet_id = null;
     }
     // initializing the map
-    var map = L.map("map", {dragging: true}).setView([39.1031, -84.512], 12);
+    var map = L.map("map", { dragging: true }).setView([39.1031, -84.512], 12);
     // Adding a title to the map views
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
 
-    axios.get(process.env.REACT_APP_BACKEND + 'attractions/')
-      .then(res => {
-        const allAttractions = res.data; 
+    // connecting and retriving data from database using axios(.then and catch)
+    axios
+      .get(process.env.REACT_APP_BACKEND + "attractions/")
+      .then((res) => {
+        const allAttractions = res.data;
 
-        allAttractions.forEach(Att => {
-          console.log(Att);
-          let {lat, lng} = Att;
+        allAttractions.forEach((Att) => {
+          let { lat, lng } = Att;
 
           L.marker([lat, lng]).addTo(map).bindPopup(Att.name);
-        })
+        });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
     // // Adding markers to each of attractions using L (leaflet JS liberary)
     // L.marker([39.1427, -84.5089]).addTo(map).bindPopup("Cincinnati Zoo"); //cincinnati zoo
@@ -53,7 +55,7 @@ const Map = () => {
     // L.marker([39.1037, -84.5104]).addTo(map).bindPopup("Cincinnati Art Museum"); // Cincinnati Art Museum
     // L.marker([39.1032, -84.5099]).addTo(map).bindPopup("Krohn Conservatory"); // Krohn Conservatory
     // L.marker([39.1091, -84.5158]).addTo(map).bindPopup("Cincinnati Music Hall"); // Cincinnati Music Hall
-    // L.marker([39.1065, -84.5081]).addTo(map).bindPopup("Cincinnati Shakespeare Company"); // Cincinnati Shakespeare Company 
+    // L.marker([39.1065, -84.5081]).addTo(map).bindPopup("Cincinnati Shakespeare Company"); // Cincinnati Shakespeare Company
     // L.marker([39.1103, -84.5167]).addTo(map).bindPopup("Washington Park"); // Washington Park
     // L.marker([39.1052, -84.5129]).addTo(map).bindPopup("Findlay Market"); // Findlay Market
     // L.marker([39.1127, -84.5151]).addTo(map).bindPopup("Taft Museum of Art"); // Taft Museum of Art
@@ -86,9 +88,9 @@ const Map = () => {
     // L.marker([39.1080, -84.5110]).addTo(map).bindPopup("Cincinnati Comedy Club"); // Cincinnati Comedy Club
     // L.marker([39.1000, -84.5175]).addTo(map).bindPopup("Cincinnati Riverboat Cruise"); // Cincinnati Riverboat Cruise
     // L.marker([39.1060, -84.5140]).addTo(map).bindPopup("Cincinnati Farmers Market"); // Cincinnati Farmers Market
-    // L.marker([39.1038, -84.5168]).addTo(map).bindPopup("Cincinnati Historic District"); // Cincinnati Historic District 
-    // L.marker([39.0982, -84.5108]).addTo(map).bindPopup("Cincinnati Skate Park"); // Cincinnati Skate Park 
-    // L.marker([39.1042, -84.5105]).addTo(map).bindPopup("Cincinnati Rock Climbing Gym"); // Cincinnati Rock Climbing Gym 
+    // L.marker([39.1038, -84.5168]).addTo(map).bindPopup("Cincinnati Historic District"); // Cincinnati Historic District
+    // L.marker([39.0982, -84.5108]).addTo(map).bindPopup("Cincinnati Skate Park"); // Cincinnati Skate Park
+    // L.marker([39.1042, -84.5105]).addTo(map).bindPopup("Cincinnati Rock Climbing Gym"); // Cincinnati Rock Climbing Gym
   }, []); //empty array run this effect only once
 
   return <div id="map" style={{ height: "75vh" }}></div>;
